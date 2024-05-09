@@ -261,7 +261,6 @@ pub const Element = struct {
 
     pub const voidTagMap = std.StaticStringMapWithEql(
         void,
-        void_tags,
         std.ascii.eqlIgnoreCase,
     ).initComptime(void_tags);
 
