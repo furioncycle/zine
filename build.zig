@@ -346,12 +346,7 @@ pub fn scriptyReferenceDocs(
     const reference_md = run_docgen.addOutputFileArg("scripty_reference.md");
 
     const wf = project.addWriteFiles();
-    wf.addCopyFile(.{
-        .src_path = .{
-            .owner = project,
-            .sub_path = reference_md,
-        },
-    }, output_file_path);
+    _ = wf.addCopyFile(reference_md, output_file_path);
 
     const desc = project.fmt("Regenerates Scripty reference docs in '{s}'", .{output_file_path});
     const run_step = project.step("docgen", desc);
